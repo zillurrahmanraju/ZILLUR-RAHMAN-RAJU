@@ -70,7 +70,6 @@ const CONFIG = {
     "upscale rajuIMG-20251201-WA0036-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0038-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0040-gigapixel-standard v2-6x.jpg",
-    "upscale rajuIMG-20251201-WA0041-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0042-gigapixel-standard v2-6x.jpg",
     "zillur rahman boss.jpg.jpeg",
     "zillur rahman raju boss.jpg.jpeg",
@@ -102,13 +101,13 @@ const CONFIG = {
 
   // image: file name next to index.html (portrait poster, 2:3 works best). Leave "" for a gradient poster.
   projects: [
-    { title: "Trishal Info Website", category: "Web", text: "A local information website designed to present community details clearly and professionally online.", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80", link: "https://amrtrishal.netlify.app" },
-    { title: "Adobe Stock Contributor", category: "Stock Footage", text: "Contributor profile featuring commercial stock visuals and creative assets published on Adobe Stock.", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80", link: "https://stock.adobe.com/contributor/212998634/ZILLUR%20RAHMAN%20RAJU" },
-    { title: "Pixabay Contributor", category: "Stock Footage", text: "Contributor profile featuring royalty-free visuals and creative assets published on Pixabay.", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80", link: "https://pixabay.com/users/zillurrahmanraju-53436061/" },
-    { title: "Shutterstock Contributor", category: "Stock Footage", text: "Contributor profile for stock images and creative assets published on Shutterstock.", image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80", link: "https://www.shutterstock.com/g/zillurrahmanraju" },
-    { title: "Vecteezy Contributor", category: "Vector & Design", text: "Contributor profile for vectors, design elements and creative resources published on Vecteezy.", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80", link: "https://www.vecteezy.com/members/116793879165899768301" },
-    { title: "AI Video Concept", category: "AI Video", text: "Short cinematic visuals and motion-driven storytelling created for digital engagement and online branding.", image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80", link: "https://www.youtube.com/@zillur_rahman_raju" },
-    { title: "Brand Visuals", category: "Design", text: "Logo, poster, and social media creative work built for clean brand identity and visual clarity.", image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80", link: "https://www.behance.net/jrraju3" }
+    { title: "Trishal Info Website", category: "Web", text: "A local information website designed to present community details clearly and professionally online.", image: "Raju all pic/11111.jpg", link: "https://amrtrishal.netlify.app" },
+    { title: "Adobe Stock Contributor", category: "Stock Footage", text: "Contributor profile featuring commercial stock visuals and creative assets published on Adobe Stock.", image: "Raju all pic/1763983912496.jpg", link: "https://stock.adobe.com/contributor/212998634/ZILLUR%20RAHMAN%20RAJU" },
+    { title: "Pixabay Contributor", category: "Stock Footage", text: "Contributor profile featuring royalty-free visuals and creative assets published on Pixabay.", image: "Raju all pic/1765067710741.jpg", link: "https://pixabay.com/users/zillurrahmanraju-53436061/" },
+    { title: "Shutterstock Contributor", category: "Stock Footage", text: "Contributor profile for stock images and creative assets published on Shutterstock.", image: "Raju all pic/1765507753320.jpg", link: "https://www.shutterstock.com/g/zillurrahmanraju" },
+    { title: "Vecteezy Contributor", category: "Vector & Design", text: "Contributor profile for vectors, design elements and creative resources published on Vecteezy.", image: "Raju all pic/1765508344491.jpg", link: "https://www.vecteezy.com/members/116793879165899768301" },
+    { title: "AI Video Concept", category: "AI Video", text: "Short cinematic visuals and motion-driven storytelling created for digital engagement and online branding.", image: "Raju all pic/IMG_20251216_162525.jpg", link: "https://www.youtube.com/@zillur_rahman_raju" },
+    { title: "Brand Visuals", category: "Design", text: "Logo, poster, and social media creative work built for clean brand identity and visual clarity.", image: "Raju all pic/IMG_20260501_213059.png", link: "https://www.behance.net/jrraju3" }
   ],
 
   freelance: {
