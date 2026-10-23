@@ -23,14 +23,14 @@ const brandColors = {
 const tl = a => `<ul class="tl">${a.map(i => `<li><span class="w">${e(i.when)}</span><h4>${e(i.title)}</h4>${i.where ? `<div class="p">${e(i.where)}</div>` : ""}${i.text ? `<p>${e(i.text)}</p>` : ""}</li>`).join("")}</ul>`;
 const S = C.show, pad = n => String(n + 1).padStart(2, "0");
 const parts = [
- ["", "", () => `<header class="hero" id="home"><div class="flare"></div>
-   <div class="portrait"><img src="${e(asset(C.photo))}" alt="${e(C.name)}" fetchpriority="high"></div>
-   <div class="hero2"><div class="hc">${C.available ? `<span class="live"><i></i>${e(C.available)}</span>` : ""}<h1><span>${e(C.firstLine)}</span><span>${e(C.secondLine)}</span></h1><p class="role">${e(C.role)}</p><p class="note">${e(C.heroNote)}</p><div class="btns"><a class="big" href="#work">View my work</a><a class="ghost" href="#contact">Contact me</a></div><div class="loc">${e(C.location)}</div></div></div></header>
+ ["", "", () => `<header class="hero" id="home">
+   <div class="hero-slides" aria-hidden="true">${(C.heroImages || []).map((src, i) => `<img class="hero-slide${i === 0 ? " active" : ""}" src="${e(asset(src))}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>`).join("")}</div>
+   <div class="hero2"><div class="hc">${C.available ? `<span class="live"><i></i>${e(C.available)}</span>` : ""}<h1><span>${e(C.firstLine)}</span><span class="hero-lastname">${[...String(C.secondLine)].map((letter, i) => `<span>${e(letter)}</span>`).join("")}</span></h1><p class="role">${e(C.role)}</p><p class="note">${e(C.heroNote)}</p><div class="btns"><a class="big" href="#work">View my work</a><a class="ghost" href="#contact">Contact me</a></div><div class="loc">${e(C.location)}</div></div></div></header>
    <div class="marq"><div>${[...C.ticker, ...C.ticker, ...C.ticker, ...C.ticker].map(t => `<span>${e(t)}</span><span>✦</span>`).join("")}</div></div>`, 1],
-["gallery", "Gallery", () => `<section id="gallery"><div class="wrap rv"><span class="k">Raju gallery</span><h2>My <em>moments.</em></h2></div><div class="gallery-grid wrap">${(C.galleryImages || []).map(src => `<figure class="gallery-card"><img src="${e(asset(`Raju all pic/${src}`))}" alt="${e(src.replace(/\.[^.]+$/, ''))}"></figure>`).join("")}</div></section>`, (C.galleryImages || []).length > 0],
+["gallery", "Gallery", () => `<section id="gallery" hidden><div class="wrap rv"><span class="k">Raju gallery</span><h2>My <em>moments.</em></h2></div><div class="gallery-grid wrap">${(C.galleryImages || []).map(src => `<figure class="gallery-card"><img src="${e(asset(`Raju all pic/${src}`))}" alt="${e(src.replace(/\.[^.]+$/, ''))}" loading="lazy" decoding="async"></figure>`).join("")}</div></section>`, (C.galleryImages || []).length > 0],
 ["about", "About", () => `<section id="about"><div class="wrap about rv"><div><span class="k">About me</span><h2>Behind <em>the lens.</em></h2></div><div>${C.about.map(p => `<p>${e(p)}</p>`).join("")}${C.stats?.length ? `<div class="stats">${C.stats.map(s => `<div><b>${e(s.n)}</b><span>${e(s.label)}</span></div>`).join("")}</div>` : ""}</div></div></section>`, S.about],
  ["services", "Services", () => `<section id="services"><div class="wrap rv"><span class="k">What I do</span><h2>Services</h2>${C.services.map((s, i) => `<div class="row service-${(i % 6) + 1}"><span class="n">${pad(i)}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><div class="tags">${(s.tags || []).map(t => `<i>${e(t)}</i>`).join("")}</div></div>`).join("")}</div></section>`, S.services && C.services.length],
- ["work", "Work", () => `<section id="work"><div class="wrap rv"><span class="k">Selected work</span><h2>The <em>reel.</em></h2></div><div class="strip">${C.projects.map(p => `<article class="poster"><div class="img" style="${p.image ? `background-image:url('${e(/^https?:/.test(p.image) ? p.image : asset(p.image))}')` : `background:linear-gradient(${150 + p.title.length * 17}deg,#3a2a14,#0f1c26 70%,#6db1dc55)`}"><span class="cat">${e(p.category)}</span><h3>${e(p.title)}</h3><p>${e(p.text)}</p>${p.link ? `<a class="go" href="${e(p.link)}"${ext(p.link)}>View project ↗</a>` : ""}</div></article>`).join("")}</div><div class="wrap"><p class="hint">Scroll sideways to browse →</p></div></section>`, S.work && C.projects.length],
+ ["work", "Work", () => `<section id="work"><div class="wrap rv"><span class="k">Selected work</span><h2>The <em>reel.</em></h2></div><div class="strip">${C.projects.map(p => `<article class="poster"><div class="img"${p.image ? "" : ` style="background:linear-gradient(${150 + p.title.length * 17}deg,#3a2a14,#0f1c26 70%,#6db1dc55)`}>${p.image ? `<img class="poster-image" src="${e(/^https?:/.test(p.image) ? p.image : asset(p.image))}" alt="" loading="lazy" decoding="async">` : ""}<span class="cat">${e(p.category)}</span><h3>${e(p.title)}</h3><p>${e(p.text)}</p>${p.link ? `<a class="go" href="${e(p.link)}"${ext(p.link)}>View project ↗</a>` : ""}</div></article>`).join("")}</div><div class="wrap"><p class="hint">Scroll sideways to browse →</p></div></section>`, S.work && C.projects.length],
  ["freelance", "Freelance", () => `<section id="freelance"><div class="wrap rv"><span class="k">Freelancing</span><h2>How I <em>work.</em></h2><p style="color:var(--mut);margin:-20px 0 34px">${e(C.freelance.intro)}</p><div class="plat">${C.freelance.platforms.map(p => `<a href="${e(p.link)}"${ext(p.link)}><b>${e(p.name)}</b><span>${e(p.note)}</span></a>`).join("")}</div><div class="steps">${C.freelance.steps.map(s => `<div><h3>${e(s.title)}</h3><p>${e(s.text)}</p></div>`).join("")}</div></div></section>`, S.freelance],
  ["journey", "Journey", () => `<section id="journey"><div class="wrap rv"><span class="k">Study & story</span><h2>My <em>journey.</em></h2><div class="two"><div><h4 style="font:400 30px var(--serif);margin:0 0 24px">Education & Training</h4>${tl(C.education)}</div><div><h4 style="font:400 30px var(--serif);margin:0 0 24px">Work Experience</h4>${tl(C.story)}</div></div></div></section>`, S.journey],
  ["skills", "Skills", () => `<section id="skills"><div class="wrap rv"><span class="k">Toolkit</span><h2>Skills</h2><p class="skill-intro">${e(C.skillsIntro)}</p><div class="tags skill-tags">${C.skillFocus.map(s => `<i>${e(s)}</i>`).join("")}</div></div></section>`, S.skills && C.skillFocus.length],
@@ -39,5 +39,33 @@ const parts = [
 document.title = `${C.name} — ${C.role}`;
 $("#nav").innerHTML = `<a class="brand" href="#gallery">${e("RAJU")}</a>` + parts.filter(p => p[0] && p[0] !== "contact" && p[0] !== "gallery").map(p => `<a class="l" href="#${p[0]}">${p[1]}</a>`).join("") + `<a class="pill" href="#contact">Hire me</a>`;
 $("#main").innerHTML = parts.map(p => p[2]()).join("") + `<footer>© ${new Date().getFullYear()} ${e(C.name)}. All rights reserved.</footer>`;
+const gallery = $("#gallery");
+if (gallery) $("#nav .brand").addEventListener("click", event => {
+  event.preventDefault();
+  gallery.hidden = false;
+  gallery.scrollIntoView({ behavior: "smooth" });
+});
+const slides = document.querySelectorAll(".hero-slide");
+if (slides.length > 1) {
+  let activeSlide = 0;
+  window.setInterval(() => {
+    slides[activeSlide].classList.remove("active");
+    activeSlide = (activeSlide + 1) % slides.length;
+    slides[activeSlide].classList.add("active");
+  }, 6000);
+}
+const rajuLetters = document.querySelectorAll(".hero-lastname span");
+if (rajuLetters.length > 1) {
+  const colors = ["#ff5a5f", "#55aaff", "#34c67d", "#ffd166"];
+  let redLetter = 0;
+  const colorRajuLetters = () => rajuLetters.forEach((letter, i) => {
+    letter.style.setProperty("--letter-color", colors[(i - redLetter + colors.length) % colors.length]);
+  });
+  colorRajuLetters();
+  window.setInterval(() => {
+    redLetter = (redLetter + 1) % rajuLetters.length;
+    colorRajuLetters();
+  }, 1000);
+}
 const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: .12 });
 document.querySelectorAll(".rv").forEach(x => io.observe(x));

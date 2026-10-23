@@ -1,8 +1,12 @@
 
 const CONFIG = {
   name: "Zillur Rahman Raju",
-  firstLine: "Zillur Rahman", secondLine: "Raju",   // giant name behind the photo
-  photo: "rajuu.jpg",
+  firstLine: "Zillur Rahman", secondLine: "Raju",
+  heroImages: [
+    "rajuu.jpg",
+    "Raju all pic/Zillur Rahman Raju.jpg",
+    "Raju all pic/rrr.jpeg"
+  ],
   galleryImages: [
     "11111.jpg",
     "1763983912496.jpg",
@@ -24,10 +28,7 @@ const CONFIG = {
     "IMG_20260520_185832.jpg.jpeg",
     "IMG_20260526_092836.jpg",
     "IMG_20260630_211243.png",
-    "WhatsApp Image 2025-12-01 at 15.28.39.jpeg",
     "WhatsApp Image 2025-12-23 at 11.15.03.jpeg",
-    "WhatsApp Image 2025-12-23 at 11.15.07.jpeg",
-    "WhatsApp Image 2025-12-23 at 11.15.10 (2).jpeg",
     "WhatsApp Image 2025-12-23 at 11.15.11 (1).jpeg",
     "WhatsApp Image 2025-12-23 at 11.15.13 (2).jpeg",
     "WhatsApp Image 2025-12-23 at 11.15.13.jpeg",
@@ -62,7 +63,6 @@ const CONFIG = {
     "upscale rajuIMG-20251201-WA0025-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0029-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0030-gigapixel-standard v2-6x.jpg",
-    "upscale rajuIMG-20251201-WA0031-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0032-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0033-gigapixel-standard v2-6x.jpg",
     "upscale rajuIMG-20251201-WA0034-gigapixel-standard v2-6x.jpg",
@@ -86,9 +86,9 @@ const CONFIG = {
   ticker: ["Graphic Design", "Web Development", "AI Video", "Reels & Motion", "Stock Footage", "Brand Visuals"],
 
   about: [
-    "I'm Zillur Rahman Raju, a professional designer and creative storyteller from Bangladesh focused on building brands that feel premium, clear, and memorable.",
-    "I work across visual design, web presentation, content writing, script development, and storytelling, helping businesses communicate with more confidence and consistency.",
-    "From brand identity and portfolio design to website content and video scripts, I help clients turn ideas into polished, high-impact work that connects with people."
+    "I'm Zillur Rahman Raju, a freelance creative from Bangladesh. I'm a graphic designer, writer, photographer, and content creator who enjoys turning ideas into thoughtful visuals and stories.",
+    "I create brand graphics, social media content, written copy, video scripts, and photography for people and businesses. I bring each project together with care so the final work feels clear, engaging, and true to its purpose.",
+    "I'm a dreamer who loves learning, exploring new ideas, and creating work that makes people feel something. Whether it's a design, a photograph, or a story, I put creativity and attention to detail into every project."
   ],
   services: [
     { title: "Professional Graphic Design", text: "Brand visuals, social media graphics, posters and marketing creatives designed to look sharp, modern and memorable.", tags: ["Branding", "Photoshop", "Illustrator"] },
@@ -121,10 +121,10 @@ const CONFIG = {
       { name: "Vecteezy", note: "Contributor — vectors and design resources", link: "https://www.vecteezy.com/members/116793879165899768301" }
     ],
     steps: [
-      { title: "Brief", text: "We talk, and I understand exactly what you need." },
-      { title: "Plan", text: "I set scope, timeline and cost before starting." },
-      { title: "Create", text: "I build it and share progress along the way." },
-      { title: "Deliver", text: "Final files, revisions and support after handover." }
+      { title: "Brief", text: "We discuss your goals, audience, style, and the problem you want the project to solve. You can share any references or ideas you already have, and I’ll ask questions to make sure I understand what you need." },
+      { title: "Plan", text: "I outline the project scope, deliverables, timeline, and price before work begins. We agree on the direction and how feedback or revisions will be handled, so expectations are clear from the start." },
+      { title: "Create", text: "I develop the agreed idea with care and attention to detail, then share progress at key stages. Your feedback helps refine the work and keep it aligned with the original goals." },
+      { title: "Deliver", text: "I prepare the approved work in the agreed formats and share the final files with you. I’ll confirm the handover is complete and provide any agreed revisions or follow-up support." }
     ]
   },
 
