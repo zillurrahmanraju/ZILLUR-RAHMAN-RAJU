@@ -70,7 +70,11 @@ h2 em{color:var(--amber)}
 .poster .cat{font-size:12px;color:var(--amber);font-weight:600}
 .poster h3{font:400 32px/1.05 var(--serif);margin:6px 0}
 .poster p{margin:0;font-size:14px;color:#d8d0c3;line-height:1.5}
-.poster a.go{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--amber)}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;padding-top:24px;padding-bottom:30px}
+.gallery-card{margin:0;overflow:hidden;border-radius:18px;border:1px solid #ffffff1a;background:#12100e;box-shadow:0 18px 40px rgba(0,0,0,.18);transition:transform .25s ease, box-shadow .25s ease}
+.gallery-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(240,165,74,.18)}
+.gallery-card img{display:block;width:100%;height:260px;object-fit:cover;object-position:center;background:#1d1a17}color:#d8d0c3;line-height:1.5}.poster a.go{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--amber)}
 .hint{color:var(--mut);font-size:13px;margin-top:16px}
 .plat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:60px}
 .plat a{border:1px solid var(--line);padding:24px;border-radius:14px;background:var(--bg2);transition:.25s}
