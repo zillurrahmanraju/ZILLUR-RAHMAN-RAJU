@@ -23,11 +23,11 @@ const brandColors = {
 const tl = a => `<ul class="tl">${a.map(i => `<li><span class="w">${e(i.when)}</span><h4>${e(i.title)}</h4>${i.where ? `<div class="p">${e(i.where)}</div>` : ""}${i.text ? `<p>${e(i.text)}</p>` : ""}</li>`).join("")}</ul>`;
 const S = C.show, pad = n => String(n + 1).padStart(2, "0");
 const parts = [
- ["", "", () => `<header class="hero" id="home">
-   <div class="hero-slides" aria-hidden="true">${(C.heroImages || []).map((src, i) => `<img class="hero-slide${i === 0 ? " active" : ""}" src="${e(asset(src))}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>`).join("")}</div>
-   <div class="hero2"><div class="hc">${C.available ? `<span class="live"><i></i>${e(C.available)}</span>` : ""}<h1><span>${e(C.firstLine)}</span><span class="hero-lastname">${[...String(C.secondLine)].map((letter, i) => `<span>${e(letter)}</span>`).join("")}</span></h1><p class="role">${e(C.role)}</p><p class="note">${e(C.heroNote)}</p><div class="btns"><a class="big" href="#work">View my work</a><a class="ghost" href="#contact">Contact me</a></div><div class="loc">${e(C.location)}</div></div></div></header>
-   <div class="marq"><div>${[...C.ticker, ...C.ticker, ...C.ticker, ...C.ticker].map(t => `<span>${e(t)}</span><span>✦</span>`).join("")}</div></div>`, 1],
-["gallery", "Gallery", () => `<section id="gallery" hidden><div class="wrap rv"><span class="k">Raju gallery</span><h2>My <em>moments.</em></h2></div><div class="gallery-grid wrap">${(C.galleryImages || []).map(src => `<figure class="gallery-card"><img src="${e(asset(`Raju all pic/${src}`))}" alt="${e(src.replace(/\.[^.]+$/, ''))}" loading="lazy" decoding="async"></figure>`).join("")}</div></section>`, (C.galleryImages || []).length > 0],
+ ["", "", () => `<header class="hero${C.heroImages?.length ? " has-hero-images" : ""}" id="home">
+   ${C.heroImages?.length ? `<div class="hero-slides" aria-hidden="true">${C.heroImages.map((src, i) => `<img class="hero-slide${i === 0 ? " active" : ""}" src="${e(asset(src))}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>`).join("")}</div>` : ""}
+   <div class="hero2"><div class="hc">${C.available ? `<span class="live"><i></i>${e(C.available)}</span>` : ""}<h1><span class="hero-firstline">${e(C.firstLine)}</span><span class="hero-lastname">${[...String(C.secondLine)].map((letter, i) => `<span>${e(letter)}</span>`).join("")}</span></h1><p class="role">${C.role.split(" · ").map((role, i) => `${i ? '<span class="role-separator" aria-hidden="true">·</span>' : ""}<span class="role-item role-item-${i + 1}">${e(role)}</span>`).join("")}</p><p class="note">${e(C.heroNote)}</p><div class="btns"><a class="big" href="#work">View my work</a><a class="ghost" href="#contact">Contact me</a></div><div class="loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-7.2 8-13a8 8 0 1 0-16 0c0 5.8 8 13 8 13Zm0-10.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg><span class="loc-city">${e(C.location.split(",")[0].trim())}</span><span class="loc-divider" aria-hidden="true">·</span><span class="loc-country">${e(C.location.split(",").slice(1).join(",").trim())}</span></div></div></div></header>
+   <div class="marq"><div>${[...C.ticker, ...C.ticker, ...C.ticker, ...C.ticker].map((t, i) => `<span class="ticker-item" style="--ticker-accent:${["#d7b56d", "#8dcbe8", "#f4f5f6"][i % 3]}">${e(t)}</span><span class="ticker-divider" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1.5 9.7 6.3 14.5 8l-4.8 1.7L8 14.5l-1.7-4.8L1.5 8l4.8-1.7L8 1.5Z"/></svg></span>`).join("")}</div></div>`, 1],
+["gallery", "Gallery", () => `<section id="gallery" hidden><div class="wrap rv"><span class="k">My photos</span><h2>My <em>moments.</em></h2></div><div class="gallery-grid wrap">${(C.galleryImages || []).map(src => `<figure class="gallery-card"><img src="${e(asset(src))}" alt="${e(src.replace(/\.[^.]+$/, ''))}" loading="lazy" decoding="async"></figure>`).join("")}</div></section>`, (C.galleryImages || []).length > 0],
 ["about", "About", () => `<section id="about"><div class="wrap about rv"><div><span class="k">About me</span><h2>Behind <em>the lens.</em></h2></div><div>${C.about.map(p => `<p>${e(p)}</p>`).join("")}${C.stats?.length ? `<div class="stats">${C.stats.map(s => `<div><b>${e(s.n)}</b><span>${e(s.label)}</span></div>`).join("")}</div>` : ""}</div></div></section>`, S.about],
  ["services", "Services", () => `<section id="services"><div class="wrap rv"><span class="k">What I do</span><h2>Services</h2>${C.services.map((s, i) => `<div class="row service-${(i % 6) + 1}"><span class="n">${pad(i)}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><div class="tags">${(s.tags || []).map(t => `<i>${e(t)}</i>`).join("")}</div></div>`).join("")}</div></section>`, S.services && C.services.length],
  ["work", "Work", () => `<section id="work"><div class="wrap rv"><span class="k">Selected work</span><h2>The <em>reel.</em></h2></div><div class="strip">${C.projects.map(p => `<article class="poster"><div class="img"${p.image ? "" : ` style="background:linear-gradient(${150 + p.title.length * 17}deg,#3a2a14,#0f1c26 70%,#6db1dc55)`}>${p.image ? `<img class="poster-image" src="${e(/^https?:/.test(p.image) ? p.image : asset(p.image))}" alt="" loading="lazy" decoding="async">` : ""}<span class="cat">${e(p.category)}</span><h3>${e(p.title)}</h3><p>${e(p.text)}</p>${p.link ? `<a class="go" href="${e(p.link)}"${ext(p.link)}>View project ↗</a>` : ""}</div></article>`).join("")}</div><div class="wrap"><p class="hint">Scroll sideways to browse →</p></div></section>`, S.work && C.projects.length],
@@ -56,7 +56,7 @@ if (slides.length > 1) {
 }
 const rajuLetters = document.querySelectorAll(".hero-lastname span");
 if (rajuLetters.length > 1) {
-  const colors = ["#ff5a5f", "#55aaff", "#34c67d", "#ffd166"];
+  const colors = ["#d7b56d", "#8dcbe8", "#f4f5f6", "#d7b56d"];
   let redLetter = 0;
   const colorRajuLetters = () => rajuLetters.forEach((letter, i) => {
     letter.style.setProperty("--letter-color", colors[(i - redLetter + colors.length) % colors.length]);
@@ -65,7 +65,7 @@ if (rajuLetters.length > 1) {
   window.setInterval(() => {
     redLetter = (redLetter + 1) % rajuLetters.length;
     colorRajuLetters();
-  }, 1000);
+  }, 1600);
 }
 const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: .12 });
 document.querySelectorAll(".rv").forEach(x => io.observe(x));
