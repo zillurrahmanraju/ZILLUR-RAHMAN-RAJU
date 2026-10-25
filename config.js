@@ -15,7 +15,7 @@ const CONFIG = {
     "rajuu.jpg",
     "rrr.jpeg"
   ],
-  role: "Designer · Content Creator · Content Writer · Script Writer",
+  role: "Designer · Content Writer · Script Writer",
   location: "Mymensingh, Bangladesh",
   available: "Open for freelance projects",
   email: "jillurrahmanraju@gmail.com",
